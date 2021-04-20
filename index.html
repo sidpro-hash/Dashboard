@@ -123,10 +123,10 @@
 			  
 			
 			function Loadchange(){
-			let content = "";
-			$('#tbody').html(content);
+				let content = "";
+				$('#tbody').html(content);
 			
-			var Datatable = [];
+				var Datatable = [];
 				let spi_9=0,spi_8=0,spi_7=0,spi_6=0,spi_5=0,spi_4=0;
 				let cpi_9=0,cpi_8=0,cpi_7=0,cpi_6=0,cpi_5=0,cpi_4=0;
 				let av_spi_9=0,av_spi_8=0,av_spi_7=0,av_spi_6=0,av_spi_5=0,av_spi_4=0;
@@ -166,9 +166,6 @@
 					else if(cpi>=5)cpi_5+=1;
 					else cpi_4+=1;
 					
-					content += "<tr>";
-					theTD.forEach(TD);
-					content += "</tr>";
 					theTD.unshift(" ");
 					Datatable.push(theTD);
 				}
@@ -282,12 +279,6 @@
 					tabler(Datatable);
 				}	
 					
-			}
-			function TH(value){
-				content += "<th>" + value + "</th>";
-			}
-			  function TD(value){
-				content += "<td>" + value + "</td>";
 			}
 			function tabler(Datatable){
 				t = $('#table_id').DataTable( {
