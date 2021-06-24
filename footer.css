@@ -1,0 +1,148 @@
+.ft{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  background: #ede7f6;
+  box-sizing: border-box;
+  font-family: calibri,sans-serif;
+  overflow-x: hidden;
+}
+.ft footer{
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 50px 0px;
+  background: #111;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ft footer .ft-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.ft footer .ft-container .sec{
+  margin-left: 30px;
+
+}
+.ft footer .ft-container .sec.aboutus{
+  width: 40%;
+}
+.ft footer .ft-container h2{
+  position: relative;
+  color:#fff;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.ft footer .ft-container h2:before{
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width:50px;
+  height: 2px;
+  background: cornflowerblue;//#f00
+}
+.ft footer p{
+  color: #999;
+}
+.ft footer ul{
+  padding-left: 0;
+}
+.sci{
+  margin-top: 20px;
+  display: flex;
+}
+.sci li{
+  list-style: none;
+}
+.sci li a{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.sci li a:hover{
+  background: cornflowerblue; // #f00
+}
+.sci li a .fab{
+  color: #fff;
+  font-size: 20px;
+}
+.quickLinks{
+  position: relative;
+  width: 25%;
+}
+.quickLinks ul li{
+  list-style: none;
+}
+.quickLinks ul li a{
+  color:#999;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.quickLinks ul li a:hover{
+  color: #fff;
+}
+.ft-contact{
+  width: calc(30% - 60px);
+  margin-right: 0 !important;
+}
+.ft-contact .info{
+  position: relative;
+}
+.ft-contact .info li{
+  display: flex;
+  margin-bottom: 16px;
+}
+.ft-contact .info li span:nth-child(1){
+   color: #fff;
+   font-size: 20px;
+   margin-right: 10px;
+}
+.ft-contact .info li span{
+  color: #999;
+}
+.ft-contact .info li a{
+    color: #999;
+    text-decoration: none;
+}
+.ft-contact .info li a:hover{
+  color: #fff;
+}
+.ft .copyrightText{
+  width: 100%;
+  background: #181818;
+  padding: 8px 100px;
+  text-align: center;
+  color: #999;
+}
+@media only screen and (max-width: 991px){
+  footer{
+    padding: 40px;
+  }
+  footer .ft-container{
+    flex-direction: column;
+  }
+  footer .ft-container .sec{
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .ft footer .ft-container .sec.aboutus,.ft footer .ft-container .quickLinks,.ft footer .ft-container .ft-contact{
+    width: 100%;
+    margin-right: 30px;
+  }
+  .ft .copyrightText{
+    padding: 8px 40px;
+  }
+}

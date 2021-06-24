@@ -30,14 +30,17 @@
 		<link rel="stylesheet" type="text/css" href="datatables.min.css"/>
 		<script type="text/javascript" src="datatables.min.js"></script>
 		<script type="text/javascript" src="dataTables.buttons.min.js"></script>
-	        <script defer type="text/javascript" src="js/dashboard_gtu.js"></script>
+	     <script defer type="text/javascript" src="js/dashboard_gtu.js"></script>
 		<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 		-->
-		<link rel ="stylesheet" href="bootstrap.min.css">
-		<link rel ="stylesheet" href="dashboard.css">
+		<link rel="stylesheet" href="footer.css"/>
+		<link rel ="stylesheet" href="bootstrap.min.css"/>
+		<link rel ="stylesheet" href="dashboard.css"/>
+		<script src="https://kit.fontawesome.com/5e8f32d58e.js" crossorigin="anonymous"></script>
 		<style>
-			body{
-				margin:5px;
+			._body{
+				margin:0px;
+				padding:0px;
 			}
 			.dataTables_wrapper .dataTables_length,
 			.dataTables_wrapper .dataTables_filter,
@@ -54,7 +57,7 @@
 			  box-shadow: none;
 			}
 			@media screen and (min-width: 992px) {
-			  body {
+			  ._body {
 				margin-right:10%;
 				margin-left:10%;
 			  }
@@ -64,8 +67,9 @@
 		
 	</head>
 	<body>
+		<div class="_body">
 		<h1>GTU Result Visualization tool</h1>
-		<p>Dashboards are a data visualization tool that allow all users to understand the analytics that
+		<p style="margin-left:0px;">Dashboards are a data visualization tool that allow all users to understand the analytics that
 		   matter to their business,department or project.A Dashboard is a business intelligence tool used
 		   to display data visualization in a way that is immediately understood.</p>
 		<!-- Surround the select box within a "custom-select" DIV element. Remember to set the width: -->
@@ -107,6 +111,48 @@
 		</table>
 		<table id="mytable">
 		</table>
-		
+		</div>
+		<div class="ft" style="font-family: calibri,sans-serif;">
+		  <footer>
+			<div class="ft-container">
+			  <div class="sec aboutus">
+				<h2>About Us</h2>
+				<p style="margin-left:0px;">GTU Result Visualization tool is our 6th SEM Project. Created by Sidpro,Chandraraj,Chirag,Adarsh.</p>
+				<ul class="sci">
+				  <li><a href="https://github.com/sidpro-hash" target="_blank"><i class="fab fa-github"></i></a></li>
+				  <!-- <li><a href="https://twitter.com/GabuSiddharth" target="_blank"><i class="fab fa-twitter"></i></a></li> -->
+				  <li><a href="https://www.instagram.com/collegeekonline/" target="_blank"><i class="fab fa-instagram"></i></a></li> 
+				</ul>
+			  </div>
+			  <div class="sec quickLinks">
+				<h2>Quick Links</h2>
+				<ul>
+				  <li><a href="https://collegeek.com/about.html" target="_blank">About</a></li>
+				  <li><a href="https://cpp-collegeek.herokuapp.com/" target="_blank">Online Compiler</a></li>
+				  <li><a href="https://linkshare.collegeek.com/" target="_blank">LinkShare</a></li>
+				  <li><a href="https://collegeek.com/Live_DHTML/index.html" target="_blank">Live Editor</a></li>
+				  <li><a href="https://collegeek.com/privecypolicy.html" target="_blank">Privacy Policy</a></li>
+				  <li><a href="https://collegeek.com/Termsandcondition.html" target="_blank">Terms & Conditions</a></li>
+				</ul>
+			  </div>
+			  <div class="sec ft-contact">
+				<h2>Contact Info</h2>
+				<ul class="info">
+				  <li>
+					<span><i class="fas fa-map-marker-alt"></i></span>
+					<span>80 Feet Road, Anand Bagh, <br>Surendranagar, Gujarat <br>363001</span>
+				  </li>
+				  <li>
+					<span><i class="fas fa-envelope"></i></span>
+					<span><a href="mailto:collegeekonline@gmail.com">collegeekonline@gmail.com</a></span>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		  </footer>
+		  <div class="copyrightText">
+			<p>© Copyright 2020-2021 by <b><span style="font-size:20px;">C</span>ollegeek</b>. All Rights Reserved.<p>
+		  </div>
+		</div>
 	</body>
 </html>	
