@@ -1,19 +1,25 @@
-			var G_H_result="",G_result="",H_result="";
+			var G_H_result_sem_5="",G_result_sem_5="",H_result_sem_5="";
+			var G_H_result_sem_4="",G_result_sem_4="",H_result_sem_4="";
+			var G_H_result_sem_3="",G_result_sem_3="",H_result_sem_3="";
+			var G_H_result_sem_2="",G_result_sem_2="",H_result_sem_2="";
 			var t;
 			$(document).ready(function(){
-				$.get('data/G_H_result.csv',function(thedata){
-					G_H_result=thedata;
+				$.get('data/G_H_result_sem_5.csv',function(thedata){
+					G_H_result_sem_5=thedata;
 					
-					$.get('data/G_result.csv',function(thedata){
-						G_result=thedata;
-						$.get('data/H_combine.csv',function(thedata){
-							H_result=thedata;
+					$.get('data/G_result_sem_5.csv',function(thedata){
+						G_result_sem_5=thedata;
+						$.get('data/H_result_sem_5.csv',function(thedata){
+							H_result_sem_5=thedata;
 							Loadchange();
 						});
 					});
 				});
 			});
 			
+			function getLol(){
+				
+			}
 			  
 			
 			function Loadchange(){
@@ -26,11 +32,127 @@
 				let av_spi_9=0,av_spi_8=0,av_spi_7=0,av_spi_6=0,av_spi_5=0,av_spi_4=0;
 				
 				let fk = document.getElementById('divs').value;
-				let theData=G_H_result;
+				let sem = parseInt(document.getElementById('sem').value);
+				let theData=G_H_result_sem_5;
 				
-				if(fk == "H")theData=H_result;
-				else if(fk == "G")theData=G_result;
-				else theData=G_H_result;
+				if(fk == "G"){
+					switch(sem){
+						case 2:if(G_result_sem_2==""){
+									$.get('data/G_result_sem_2.csv',function(thedata){
+										G_result_sem_2=thedata;
+										Loadchange();
+									});
+									return;
+								}
+								else{ theData=G_result_sem_2; }
+							break;
+						case 3:if(G_result_sem_3==""){
+									$.get('data/G_result_sem_3.csv',function(thedata){
+										G_result_sem_3=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_result_sem_3; }
+						
+							break;
+						case 4:if(G_result_sem_4==""){
+									$.get('data/G_result_sem_4.csv',function(thedata){
+										G_result_sem_4=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_result_sem_4; }
+						
+							break;
+						case 5:if(G_result_sem_5==""){
+									$.get('data/G_result_sem_5.csv',function(thedata){
+										G_result_sem_5=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_result_sem_5; }
+						
+							break;
+					}
+				}
+				else if(fk == "H"){
+					switch(sem){
+						case 2:if(H_result_sem_2==""){
+									$.get('data/H_result_sem_2.csv',function(thedata){
+										H_result_sem_2=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=H_result_sem_2; }
+							break;
+						case 3:if(H_result_sem_3==""){
+									$.get('data/H_result_sem_3.csv',function(thedata){
+										H_result_sem_3=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=H_result_sem_3; }
+						
+							break;
+						case 4:if(H_result_sem_4==""){
+									$.get('data/H_result_sem_4.csv',function(thedata){
+										H_result_sem_4=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=H_result_sem_4; }
+						
+							break;
+						case 5:if(H_result_sem_5==""){
+									$.get('data/H_result_sem_5.csv',function(thedata){
+										H_result_sem_5=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=H_result_sem_5; }
+						
+							break;
+					}
+				}
+				else{
+					switch(sem){
+						case 2:if(G_H_result_sem_2==""){
+									$.get('data/G_H_result_sem_2.csv',function(thedata){
+										G_H_result_sem_2=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_2; }
+							break;
+						case 3:if(G_H_result_sem_3==""){
+									$.get('data/G_H_result_sem_3.csv',function(thedata){
+										G_H_result_sem_3=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_3; }
+						
+							break;
+						case 4:if(G_H_result_sem_4==""){
+									$.get('data/G_H_result_sem_4.csv',function(thedata){
+										G_H_result_sem_4=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_4; }
+						
+							break;
+						case 5:if(G_H_result_sem_5==""){
+									$.get('data/G_H_result_sem_5.csv',function(thedata){
+										G_H_result_sem_5=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_5; }
+						
+							break;
+					}
+				}					
 			
 				//console.log(theData);
 				theData = theData.replace(/"/g,'');

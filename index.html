@@ -69,14 +69,23 @@
 		   matter to their business,department or project.A Dashboard is a business intelligence tool used
 		   to display data visualization in a way that is immediately understood.</p>
 		<!-- Surround the select box within a "custom-select" DIV element. Remember to set the width: -->
-		 <label for="divs" style="color:white">Choose Division:</label>
+		<label for="divs" style="color:white">Choose Division:</label>
 
 		<select name="divs" id="divs" onchange="Loadchange()" style="cursor:pointer;background-color:#34568B;color:white">
 		  <option value="G">G</option>
 		  <option value="H">H</option>
 		  <option value="Both" selected>G & H</option>
-		</select> 
+		</select>
+		<label for="sem" style="color:white">Choose Semester:</label>
+		<select name="sem" id="sem" onchange="Loadchange()" style="cursor:pointer;background-color:#34568B;color:white">
+		  <option value="2">SEM 2</option>
+		  <option value="3">SEM 3</option>
+		  <option value="4">SEM 4</option>
+		  <option value="5" selected>SEM 5</option>
+		</select> 		
 		<br/><br/>
+		<noscript><i style="color:orange;font-size:24px;">Your browser does not support JavaScript!<i><br/>
+		<img src="data/noscript.png" style="width:auto;height:auto;"></noscript>
 		<div id="chartContainer" style="height: 400px; width: 49%;display:inline-block"></div>
 		<div id="chartContainer2" style="height: 400px; width: 49%;display:inline-block"></div>
 		<br/>
