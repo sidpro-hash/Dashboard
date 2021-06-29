@@ -33,6 +33,7 @@
 				
 				let fk = document.getElementById('divs').value;
 				let sem = parseInt(document.getElementById('sem').value);
+				let tit = "Semester "+sem;
 				let theData=G_H_result_sem_5;
 				
 				if(fk == "G"){
@@ -213,7 +214,7 @@
 						cursor: "pointer"
 					},
 					subtitles: [{
-						text: "Semester Five",
+						text: tit,
 						fontSize: 16
 					}],
 					data: [
