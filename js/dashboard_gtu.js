@@ -6,12 +6,12 @@
 			var t;
 			$(document).ready(function(){
 				$.get('data/G_H_result_sem_6.csv',function(thedata){
-					G_H_result_sem_5=thedata;
+					G_H_result_sem_6=thedata;
 					
 					$.get('data/G_result_sem_6.csv',function(thedata){
-						G_result_sem_5=thedata;
+						G_result_sem_6=thedata;
 						$.get('data/H_result_sem_6.csv',function(thedata){
-							H_result_sem_5=thedata;
+							H_result_sem_6=thedata;
 							Loadchange();
 						});
 					});
@@ -35,7 +35,7 @@
 				let fk = document.getElementById('divs').value;
 				let sem = parseInt(document.getElementById('sem').value);
 				let tit = "Semester "+sem;
-				let theData=G_H_result_sem_5;
+				let theData=G_H_result_sem_6;
 				
 				if(fk == "G"){
 					switch(sem){
