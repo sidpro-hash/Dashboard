@@ -1,15 +1,16 @@
+			var G_H_result_sem_6="",G_result_sem_6="",H_result_sem_6="";
 			var G_H_result_sem_5="",G_result_sem_5="",H_result_sem_5="";
 			var G_H_result_sem_4="",G_result_sem_4="",H_result_sem_4="";
 			var G_H_result_sem_3="",G_result_sem_3="",H_result_sem_3="";
 			var G_H_result_sem_2="",G_result_sem_2="",H_result_sem_2="";
 			var t;
 			$(document).ready(function(){
-				$.get('data/G_H_result_sem_5.csv',function(thedata){
+				$.get('data/G_H_result_sem_6.csv',function(thedata){
 					G_H_result_sem_5=thedata;
 					
-					$.get('data/G_result_sem_5.csv',function(thedata){
+					$.get('data/G_result_sem_6.csv',function(thedata){
 						G_result_sem_5=thedata;
-						$.get('data/H_result_sem_5.csv',function(thedata){
+						$.get('data/H_result_sem_6.csv',function(thedata){
 							H_result_sem_5=thedata;
 							Loadchange();
 						});
@@ -74,6 +75,15 @@
 								else{ theData=G_result_sem_5; }
 						
 							break;
+						case 6:if(G_result_sem_6==""){
+								$.get('data/G_result_sem_6.csv',function(thedata){
+									G_result_sem_6=thedata;
+									Loadchange();
+								});return;
+							}
+							else{ theData=G_result_sem_6; }
+					
+						break;
 					}
 				}
 				else if(fk == "H"){
@@ -113,6 +123,15 @@
 								else{ theData=H_result_sem_5; }
 						
 							break;
+						case 6:if(H_result_sem_6==""){
+								$.get('data/H_result_sem_6.csv',function(thedata){
+									H_result_sem_6=thedata;
+									Loadchange();
+								});return;
+							}
+							else{ theData=H_result_sem_6; }
+					
+						break;
 					}
 				}
 				else{
@@ -150,6 +169,15 @@
 									});return;
 								}
 								else{ theData=G_H_result_sem_5; }
+						
+							break;
+						case 6:if(G_H_result_sem_6==""){
+									$.get('data/G_H_result_sem_6.csv',function(thedata){
+										G_H_result_sem_6=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_6; }
 						
 							break;
 					}
