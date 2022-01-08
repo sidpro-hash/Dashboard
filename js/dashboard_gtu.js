@@ -28,9 +28,9 @@
 				$('#tbody').html(content);
 			
 				var Datatable = [];
-				let spi_9=0,spi_8=0,spi_7=0,spi_6=0,spi_5=0,spi_4=0;
-				let cpi_9=0,cpi_8=0,cpi_7=0,cpi_6=0,cpi_5=0,cpi_4=0;
-				let av_spi_9=0,av_spi_8=0,av_spi_7=0,av_spi_6=0,av_spi_5=0,av_spi_4=0;
+				let spi_10=0,spi_9=0,spi_8=0,spi_7=0,spi_6=0,spi_5=0,spi_4=0,spi_3=0,spi_2=0,spi_1=0;
+				let cpi_10=0,cpi_9=0,cpi_8=0,cpi_7=0,cpi_6=0,cpi_5=0,cpi_4=0,cpi_3=0,cpi_2=0,cpi_1=0;
+				let av_spi_9=0,av_spi_8=0,av_spi_7=0,av_spi_6=0,av_spi_5=0,av_spi_4=0,av_spi_3=0,av_spi_2=0,av_spi_1=0;
 				
 				let fk = document.getElementById('divs').value;
 				let sem = parseInt(document.getElementById('sem').value);
@@ -196,29 +196,66 @@
 				for(let i=1;i<totalRows;++i){
 					theTD = theData[i].split(',');
 					let spi = parseFloat(theTD[3]);
-					if(spi>=9)spi_9+=1;
+					if(spi>=10)spi_10+=1;
+					else if(spi>=9)spi_9+=1;
 					else if(spi>=8)spi_8+=1;
 					else if(spi>=7)spi_7+=1;
 					else if(spi>=6)spi_6+=1;
 					else if(spi>=5)spi_5+=1;
-					else spi_4+=1;
+					else if(spi>=4)spi_4+=1;
+					else if(spi>=3)spi_3+=1;
+					else if(spi>=2)spi_2+=1;
+					else spi_1+=1;
 					
 					let cpi = parseFloat(theTD[2]);
-					if(cpi>=9)cpi_9+=1;
+					if(cpi>=10)cpi_10+=1;
+					else if(cpi>=9)cpi_9+=1;
 					else if(cpi>=8)cpi_8+=1;
 					else if(cpi>=7)cpi_7+=1;
 					else if(cpi>=6)cpi_6+=1;
 					else if(cpi>=5)cpi_5+=1;
-					else cpi_4+=1;
+					else if(cpi>=4)cpi_4+=1;
+					else if(cpi>=3)cpi_3+=1;
+					else if(cpi>=2)cpi_2+=1;
+					else cpi_1+=1;
 					
 					theTD.unshift(" ");
 					Datatable.push(theTD);
 				}
+				av_spi_10 = spi_10*100/(totalRows-1);
 				av_spi_9 = spi_9*100/(totalRows-1);
 				av_spi_8 = spi_8*100/(totalRows-1);
 				av_spi_7 = spi_7*100/(totalRows-1);
 				av_spi_6 = spi_6*100/(totalRows-1);
 				av_spi_5 = spi_5*100/(totalRows-1);
+				av_spi_4 = spi_4*100/(totalRows-1);
+				av_spi_3 = spi_3*100/(totalRows-1);
+				av_spi_2 = spi_2*100/(totalRows-1);
+				av_spi_1 = spi_1*100/(totalRows-1);
+				
+				const av_spi_list = new Array(av_spi_10,av_spi_9,av_spi_8,av_spi_7,av_spi_6,av_spi_5,av_spi_4,av_spi_3,av_spi_2,av_spi_1);
+				const cpi_list = new Array(cpi_10,cpi_9,cpi_8,cpi_7,cpi_6,cpi_5,cpi_4,cpi_3,cpi_2,cpi_1);
+				const spi_list = new Array(spi_10,spi_9,spi_8,spi_7,spi_6,spi_5,spi_4,spi_3,spi_2,spi_1);
+				const datapoint1 = [];
+				const datapoint2 = [];
+				const datapoint3 = [];
+				let be = true;
+				for(let i=0;i<10;++i){
+					if(cpi_list[i]!=0 || spi_list[i]!=0){
+						datapoint1.push({label:`CPI ${10-i}`,y:cpi_list[i]});
+						datapoint2.push({label:`SPI ${10-i}`,y:spi_list[i]});
+					}
+					if(av_spi_list[i]!=0){
+						if(be){
+							datapoint3.push({y: av_spi_list[i], name: `SPI ${10-i}`,exploded: true});
+							be=false;
+						}
+						else
+							datapoint3.push({y: av_spi_list[i], name: `SPI ${10-i}`});
+					}
+				}
+				//console.log(datapoint1);
+				//console.log(datapoint2);
 				
 				CanvasJS.addColorSet("colors",
 					[//colorSet Array
@@ -226,8 +263,13 @@
 					"#008080",
 					"#2E8B57",
 					"#3CB371",
-					"#90EE90"
-					//"#5d9e9e"
+					"#90EE90",
+					"#ABD699",
+					"#75C9B7",
+					"#5d9e9e",
+					"#C7DDCC",
+					"#16123F",
+					"#2F5C8F"
 					]);
 				var chart2 = new CanvasJS.Chart("chartContainer2", {
 					colorSet: "colors",
@@ -253,14 +295,7 @@
 							radius: 180,
 							indexLabel: "{name} - {y}",
 							yValueFormatString: "###0.0\"%\"",
-							dataPoints: [
-								{ y: av_spi_9, name: "SPI 9" ,exploded: true},
-								{ y: av_spi_8, name: "SPI 8"},
-								{ y: av_spi_7, name: "SPI 7" },
-								{ y: av_spi_6, name: "SPI 6" },
-								{ y: av_spi_5, name: "SPI 5" }
-								
-							]
+							dataPoints: datapoint3
 						}
 					]
 				});
@@ -288,28 +323,14 @@
 							type: "stackedColumn",
 							showInLegend: true,
 							legendText: "CPI",
-							dataPoints: [
-								{ label: "CPI 9",  y: cpi_9  },
-								{ label: "CPI 8", y: cpi_8  },
-								{ label: "CPI 7", y: cpi_7 },
-								{ label: "CPI 6",  y: cpi_6  },
-								{ label: "CPI 5",  y: cpi_5  },
-								{ label: "CPI 4",  y: cpi_4  }
-							]						
+							dataPoints: datapoint1			
 
 						},{
 							// Change type to "stackedArea", "stackedColumn", "column", "doughnut", "line", "splineArea" etc.
 							type: "stackedColumn",
 							showInLegend: true,
 							legendText: "SPI",
-							dataPoints: [
-								{ label: "SPI 9",  y: spi_9  },
-								{ label: "SPI 8", y: spi_8  },
-								{ label: "SPI 7", y: spi_7 },
-								{ label: "SPI 6",  y: spi_6  },
-								{ label: "SPI 5",  y: spi_5  },
-								{ label: "SPI 4",  y: spi_4  }
-							]						
+							dataPoints: datapoint2			
 
 						}
 					]
