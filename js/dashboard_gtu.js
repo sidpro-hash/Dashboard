@@ -1,3 +1,4 @@
+			var G_H_result_sem_8="",G_result_sem_8="",H_result_sem_8="";
 			var G_H_result_sem_7="",G_result_sem_7="",H_result_sem_7="";
 			var G_H_result_sem_6="",G_result_sem_6="",H_result_sem_6="";
 			var G_H_result_sem_5="",G_result_sem_5="",H_result_sem_5="";
@@ -6,13 +7,13 @@
 			var G_H_result_sem_2="",G_result_sem_2="",H_result_sem_2="";
 			var t;
 			$(document).ready(function(){
-				$.get('data/G_H_result_sem_7.csv',function(thedata){
-					G_H_result_sem_7=thedata;
+				$.get('data/G_H_result_sem_8.csv',function(thedata){
+					G_H_result_sem_8=thedata;
 					
-					$.get('data/G_result_sem_7.csv',function(thedata){
-						G_result_sem_7=thedata;
-						$.get('data/H_result_sem_7.csv',function(thedata){
-							H_result_sem_7=thedata;
+					$.get('data/G_result_sem_8.csv',function(thedata){
+						G_result_sem_8=thedata;
+						$.get('data/H_result_sem_8.csv',function(thedata){
+							H_result_sem_8=thedata;
 							Loadchange();
 						});
 					});
@@ -36,7 +37,8 @@
 				let fk = document.getElementById('divs').value;
 				let sem = parseInt(document.getElementById('sem').value);
 				let tit = "Semester "+sem;
-				let theData=G_H_result_sem_7;
+				let theData=G_H_result_sem_8;
+				
 				
 				if(fk == "G"){
 					switch(sem){
@@ -92,6 +94,15 @@
 								});return;
 							}
 							else{ theData=G_result_sem_7; }
+					
+						break;
+						case 8:if(G_result_sem_8==""){
+								$.get('data/G_result_sem_8.csv',function(thedata){
+									G_result_sem_8=thedata;
+									Loadchange();
+								});return;
+							}
+							else{ theData=G_result_sem_8; }
 					
 						break;
 					}
@@ -151,6 +162,15 @@
 							else{ theData=H_result_sem_7; }
 					
 						break;
+						case 7:if(H_result_sem_8==""){
+								$.get('data/H_result_sem_8.csv',function(thedata){
+									H_result_sem_8=thedata;
+									Loadchange();
+								});return;
+							}
+							else{ theData=H_result_sem_8; }
+					
+						break;
 					}
 				}
 				else{
@@ -208,6 +228,15 @@
 								else{ theData=G_H_result_sem_7; }
 						
 							break;	
+						case 7:if(G_H_result_sem_8==""){
+									$.get('data/G_H_result_sem_8.csv',function(thedata){
+										G_H_result_sem_8=thedata;
+										Loadchange();
+									});return;
+								}
+								else{ theData=G_H_result_sem_8; }
+						
+							break;
 					}
 				}					
 			
@@ -248,6 +277,7 @@
 					else cpi_1+=1;
 					
 					theTD.unshift(" ");
+					if(sem!=8)theTD.push('0');
 					Datatable.push(theTD);
 				}
 				av_spi_10 = spi_10*100/(totalRows-1);
@@ -364,14 +394,18 @@
 					]
 				});
 				chart.render();
-				
-				if ( $.fn.dataTable.isDataTable( '#table_id' ) ) {
-						t.clear().draw();
-						t.rows.add(Datatable).draw();
+				try{
+					if ( $.fn.dataTable.isDataTable( '#table_id' ) ) {
+							t.clear().draw();
+							t.rows.add(Datatable).draw();
+					}
+					else {
+						tabler(Datatable);
+					}
 				}
-				else {
-					tabler(Datatable);
-				}	
+				catch(err){
+					console.log(err);
+				}
 					
 			}
 			function tabler(Datatable){
