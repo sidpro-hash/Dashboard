@@ -162,7 +162,7 @@
 							else{ theData=H_result_sem_7; }
 					
 						break;
-						case 7:if(H_result_sem_8==""){
+						case 8:if(H_result_sem_8==""){
 								$.get('data/H_result_sem_8.csv',function(thedata){
 									H_result_sem_8=thedata;
 									Loadchange();
@@ -228,7 +228,7 @@
 								else{ theData=G_H_result_sem_7; }
 						
 							break;	
-						case 7:if(G_H_result_sem_8==""){
+						case 8:if(G_H_result_sem_8==""){
 									$.get('data/G_H_result_sem_8.csv',function(thedata){
 										G_H_result_sem_8=thedata;
 										Loadchange();
